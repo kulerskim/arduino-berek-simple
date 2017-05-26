@@ -13,9 +13,13 @@
 
 #define CENTER_LINE_DETECTOR 12
 
+#define let auto
+
 NewPing proximity(PROXIMITY_TRIG, PROXIMITY_ECHO, 200);
 L298N wheels(LEFT_SPEED, LEFT_FORWARD, LEFT_BACKWARD, RIGHT_FORWARD, RIGHT_BACKWARD, RIGHT_SPEED);
 
 void setup() {
+  Serial.begin(9600);
+  Serial.setTimeout(50);
 }
 
