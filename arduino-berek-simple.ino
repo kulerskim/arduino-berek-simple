@@ -1,19 +1,7 @@
 #include "setup.h"
 
 void loop() {
-  if (over_the_line()) {
-    go_back(500);
-    turn_left(250);
-  } else {
-    let distance = how_far_is_the_closest_object();
-    let something_is_near = distance < 50;
-    
-    if (something_is_near) {
-      go_forward(200);
-    } else {
-      turn_left(20);
-    }
-  }
+  #include "loop.h"
 }
 
 bool over_the_line() {
@@ -25,14 +13,20 @@ void go_back(int miliseconds) {
 }
 
 int how_far_is_the_closest_object() {
-  return proximity.ping_cm();
+  auto distance = proximity.ping_cm();
+
+  if (distance == 0) {
+    distance = 100000;
+  }
+  
+  return distance;
 }
 
-void go_forward(int miliseconds) {
-  wheels.forward(255, miliseconds);
+void do_przodu(niech ile_sekund) {
+  wheels.forward(255, 1000 * ile_sekund);
 }
 
-void turn_left(int miliseconds) {
-  wheels.turn_left(155, miliseconds);
+void obroc_w_lewo(niech ile_sekund) {
+  wheels.turn_left(155, 1000 * ile_sekund);
 }
 

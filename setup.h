@@ -13,7 +13,9 @@
 
 #define CENTER_LINE_DETECTOR 12
 
-#define let auto
+#define niech auto
+#define jezeli if
+#define inaczej else
 
 NewPing proximity(PROXIMITY_TRIG, PROXIMITY_ECHO, 200);
 L298N wheels(LEFT_SPEED, LEFT_FORWARD, LEFT_BACKWARD, RIGHT_FORWARD, RIGHT_BACKWARD, RIGHT_SPEED);
